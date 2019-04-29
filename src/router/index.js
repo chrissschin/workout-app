@@ -2,6 +2,8 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Index from '@/components/Index'
 import Dashboard from '@/components/Dashboard'
+import Test from '@/components/Test'
+// import AddWorkoutFrom from '@/components/AddWorkoutForm'
 
 Vue.use(Router)
 
@@ -13,7 +15,11 @@ export default new Router({
       component: Index
     },
     {
-      //user id will be slugify first name and last name
+      path: '/test',
+      name: 'Test',
+      component: Test
+    }, 
+    {
       path: '/dashboard',
       name: 'Dashboard',
       component: Dashboard

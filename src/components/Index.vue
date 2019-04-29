@@ -123,7 +123,8 @@ import db from '@/firebase/init'
       signUp() {   
         // check database if the username already exists
         // else create new user then go to dash
-        let ref = db.collection('users').doc(this.username)              
+        let ref = db.collection('users').doc(this.username)
+        
         ref.get().then(doc => {
           if (doc.exists) {
             this.feedback.username = 'This username is taken'
@@ -134,7 +135,8 @@ import db from '@/firebase/init'
                 ref.set({
                   slug: this.username,
                   uid: credential.user.uid,
-                  email: this.email
+                  email: this.email,
+                  workouts: []
                 })
                 console.log(credential.user)
                 this.$router.push({ name: 'Dashboard' })
